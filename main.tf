@@ -32,5 +32,4 @@ resource "aws_route_table" "route_table" {
   route {
     cidr_block = var.route_table_ip
     gateway_id = "${aws_internet_gateway.ig.id}"
-  }
-}
+  
