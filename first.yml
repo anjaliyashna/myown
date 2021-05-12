@@ -9,4 +9,10 @@
       debug: msg="{{ ansible_distribution_version}}"
     - name: Distribution major version
       debug: msg="{{ ansible_distribution_major_version }}"
+    - name: installing apache
+      yum:
+        name: httpd
+        state: latest
+    -name: starting service
+     service: name=httpd state=started
 
