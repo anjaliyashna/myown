@@ -1,7 +1,15 @@
 ---
+<<<<<<< HEAD
 hosts: webservers
  tasks:
    - name:"This is to install https"
    yum:
      name:httpd
      state:latest
+=======
+hosts: webserver
+tasks:
+  name: "checking version"
+  shell: uname
+  register: kernel
+>>>>>>> main
