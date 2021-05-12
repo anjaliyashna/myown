@@ -1,6 +1,0 @@
----
-hosts: webserver
-tasks:
-  name: "checking version"
-  shell: uname
-  register: kernel
