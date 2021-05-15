@@ -3,25 +3,15 @@
   gather_facts: yes
   become: true
   tasks:
-    -name: "install apache2"
+    - name: "install apache2"
     yum:
       name: apache
       state: latest
     -name: "starting service"
     service: name=http state=started
-    -name: "install PHP"
-    yum:
-      name: php
+    apt:
+      pkg:
+        - php
+        - mysql
+        - php-mysql
       state: latest
-    -name: "starting service"
-    service: name=http state=started
-    -name: "install php-mysql"
-      yum:
-        name: php-mysql
-        state: latest
-        -name: "starting service"
-        service: name=php-mysql state=started
-    -name: "install mysql"
-      yum:
-        name: mysql
-        state: latest
