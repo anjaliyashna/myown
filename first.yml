@@ -15,4 +15,3 @@
         state: latest
     -name: starting service 
      service: name=httpd state=started
-
