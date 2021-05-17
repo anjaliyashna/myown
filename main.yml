@@ -1,17 +1,29 @@
----
-- hosts: DEV
-  gather_facts: yes
-  become: true
-  tasks:
-    - name: "install apache2"
-    yum:
-      name: apache
-      state: latest
-    -name: "starting service"
-    service: name=http state=started
-    apt:
-      pkg:
-        - php
-        - mysql
-        - php-mysql
-      state: latest
+- hosts: dev
+    become: yes
+    tasks:
+      - name: install lamp stack
+
+        apt:
+          pkg:
+            - apache2
+            - mysql-server
+            - php
+            - php-mysql
+          state: latest
+
+        notify:
+          - start apache
+          - start mysql-server
+
+    handlers:
+      - name: start apache
+        service:
+          name: apache2
+          state: started
+          enabled: yes
+
+      - name: start mysql-server
+        service:
+          name: mysql
+          state: started
+          enabled: yes
