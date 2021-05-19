@@ -36,9 +36,4 @@
     # - name: create target directory
     #   file: path=/var/www/html state=directory mode=0755
 
-    - name: deploy index.html
-      copy:
-        src: ~/Documents/ansible/index.html
-        dest: /var/www/html/index.html
-
 ...
