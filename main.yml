@@ -17,8 +17,7 @@
       notify:
         - start apache
         - start mysql-server
-        # - create target directory
-        - deploy index.html
+
 
   handlers:
     - name: start apache
