@@ -1,0 +1,8 @@
+---
+#Install apache
+- name: install apache
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "16.04"
+  apt: 
+   name: apache2
+   state: latest
+...

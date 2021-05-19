@@ -1,0 +1,14 @@
+---
+   
+
+  - name: Create a back up of /var/www/html
+    archive: 
+     path: /var/www/html
+     dest: /home/backup.gz
+     format: gz
+
+  - name: deploy index.html
+    copy:
+     src: ~/Documents/ansible/index1.html
+     dest: /var/www/html/index.html
+...

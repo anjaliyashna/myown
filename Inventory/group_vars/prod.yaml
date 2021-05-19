@@ -1,0 +1,3 @@
+#This file contains group variables for [prod] group
+#Developed by LabIT Training
+test_dir: "~/Documents/"

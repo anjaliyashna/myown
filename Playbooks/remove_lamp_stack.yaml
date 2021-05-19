@@ -1,0 +1,17 @@
+---
+#This playbook will install LAMP stack (Apache, mysql, php) on the remote machine
+# written by LabIT training for training purposes
+ - hosts: dev                                        
+   become: yes
+   tasks:
+    - name: uninstall lamp stack
+      
+      apt:
+       pkg:
+        - apache2
+        - mysql-server
+        - php
+        - php-mysql
+       state: absent
+       update_cache: yes
+...

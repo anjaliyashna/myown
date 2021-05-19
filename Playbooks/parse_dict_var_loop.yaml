@@ -1,0 +1,25 @@
+---
+ - hosts: dev
+   tasks: 
+
+     # Print the dictionary
+
+    - debug:
+       msg: "{{ ansible_mounts }}"
+    
+    # Parsing through variable dictionary 
+
+    - debug:
+       msg: "Mount Point {{ item.mount }} is at {{ item.block_used/item.block_total*100 }} percent"
+      loop: "{{ ansible_mounts }}"
+
+
+    # Execute host based task using variable
+
+    - name: Execute the command on one host only
+      become: yes
+      become_user: root
+      shell: "uname -a"
+      when: "{{ ansible_hostname == 'dev1' }}"
+
+...

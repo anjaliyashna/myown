@@ -1,0 +1,16 @@
+---
+- hosts: dev
+  tasks:   
+  # - name: This will reboot the machine
+  #   reboot: 
+   - name: This is reboot with the use of shell command
+     shell: "sleep 5 && reboot"
+     async: 1
+     poll: 0
+   - name: Wait for the reboot to complete if there was a change.
+     wait_for_connection:
+      connect_timeout: 20
+      sleep: 5
+      delay: 5
+      timeout: 300
+...

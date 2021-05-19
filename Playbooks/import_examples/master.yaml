@@ -1,0 +1,11 @@
+---
+
+ - hosts: dev
+   become: yes
+ #- import_playbook: backup.yaml
+ # import_playbook: deploy_changes.yaml
+
+   tasks:
+    - import_tasks: common_tasks.yaml
+ 
+...

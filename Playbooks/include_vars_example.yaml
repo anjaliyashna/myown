@@ -1,0 +1,28 @@
+---
+- hosts: dev
+  
+  tasks: 
+   - include_vars: 
+      file: ../vars/vars.yaml
+      name: vars
+     
+
+   - include_vars: 
+      dir: ../vars/all
+      extensions: 
+       - yaml
+       - yml
+      ignore_unknown_extensions: yes
+      name: samples
+        
+   - debug: 
+      msg: 
+       - "{{ vars.vars }}"
+       - "{{ vars.vars.source_dir }}"
+       - "{{ vars.vars.backup_dir }}"
+       - "{{ samples }}"
+       - "{{ samples.sample1 }}"
+       - "{{ samples.sample2 }}"
+
+
+...

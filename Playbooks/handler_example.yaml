@@ -1,0 +1,19 @@
+---
+
+- hosts: dev
+  become: yes
+  tasks:
+   - name: template configuration file
+     template:
+      src: /etc/ssh/ssh_config
+      dest: /etc/ssh/ssh_config
+     notify:
+      - restart ssh
+
+  handlers:
+    - name: restart ssh
+      service:
+       name: ssh
+       state: restarted
+
+...

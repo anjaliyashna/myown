@@ -1,0 +1,11 @@
+---
+- hosts: dev
+  tasks: 
+   - name: This will update the remote machine
+     apt:
+      upgrade: full 
+   - name: This will reboot the machine
+     reboot:
+      reboot_timeout: 600
+
+...  

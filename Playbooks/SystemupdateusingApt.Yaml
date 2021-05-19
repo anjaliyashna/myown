@@ -1,0 +1,18 @@
+---
+- hosts: dev
+  tasks: 
+   - name: This will update the remote machine
+     apt:
+      upgrade: yes/dist/full  
+   
+#yes performs safe upgrade and will not remove packages
+                              
+#dist-upgrade in addition to performing the function of upgrade, also intelligently handles 
+#changing dependencies with new versions of packages; apt-get has a "smart" conflict resolution 
+#system,and it will attempt to upgrade the most important packages at the expense of less 
+#important ones if necessary. The dist-upgrade command may therefore remove some packages. 
+#The /etc/apt/sources.list file contains a list of locations from which to retrieve 
+# desired package files.
+# full perform a full upgrade and remove packages if need be
+
+...

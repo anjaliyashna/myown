@@ -1,0 +1,44 @@
+---
+#This playbook will install LAMP stack (Apache, mysql, php) on the remote machine
+# written by LabIT training for training purposes
+ - hosts: dev                                        
+   become: yes
+   tasks:
+    - name: install lamp stack
+      
+      apt:
+       pkg:
+        - apache2
+        - mysql-server
+        - php
+        - php-mysql
+       state: latest
+
+      notify: 
+       - start apache
+       - start mysql-server
+      # - create target directory
+       - deploy index.html
+
+   handlers:
+    - name: start apache
+      service:
+       name: apache2
+       state: started
+       enabled: yes
+     
+    - name: start mysql-server
+      service: 
+       name: mysql
+       state: started
+       enabled: yes
+    
+   # - name: create target directory
+   #   file: path=/var/www/html state=directory mode=0755
+
+    - name: deploy index.html
+      copy:
+       src: ~/Documents/ansible/index.html
+       dest: /var/www/html/index.html
+
+...

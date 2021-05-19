@@ -1,0 +1,13 @@
+---
+- name: back important folders
+  hosts: dev
+  become: yes
+  vars_files: 
+   - ../vars/vars.yaml
+  tasks: 
+   - name: Using archive modile and variables
+     archive: 
+      path: "{{ source_dir }}"
+      dest: "{{ backup_dir }}"
+      format: zip
+     

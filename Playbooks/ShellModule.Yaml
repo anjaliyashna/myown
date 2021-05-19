@@ -1,0 +1,11 @@
+---
+# variables like $HOME and operations like "<", ">", "|", ";" and "&" will  work 
+ - hosts: dev
+   tasks:
+    - name : Create a simple file using shell module
+      shell: touch mytestfile.txt            # Runs a shell command
+      args:                             # Provide some arguments with this command
+       chdir: /home/vikas/              # Change directory to /home/vikas
+       creates: mytestfile.txt          # Makes sure the shell command is only run 
+                                        # when /home/vikas/mytestfile.txt does not exist
+... 

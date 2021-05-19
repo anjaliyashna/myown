@@ -1,0 +1,11 @@
+---
+ - hosts: dev
+   become: yes
+   tasks:
+    - name: Create a back up of /var/www/html 
+      archive: 
+       path: /var/www/html
+       dest: /home/backup.gz
+       format: gz
+
+...
