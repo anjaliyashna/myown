@@ -1,0 +1,13 @@
+---
+- hosts: dev
+  gather_facts: yes
+  tasks:
+  - debug:
+     msg: 
+      - "ansible_all_ipv4_addresses is of type {{ ansible_all_ipv4_addresses | type_debug }}"
+      - "ansible_date_time is of type {{ ansible_date_time | type_debug }} "
+      - " ansible_architecture is of type {{ ansible_architecture | type_debug }}"
+  roles: 
+   - ../roles/apache
+
+...  
